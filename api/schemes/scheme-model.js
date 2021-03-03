@@ -15,6 +15,10 @@ function find() { // EXERCISE A
     2A- When you have a grasp on the query go ahead and build it in Knex.
     Return from this function the resulting dataset.
   */
+    return db("schemes")
+      .select("schemes.*", "steps.step_id")
+      .leftjoin ("steps", "schemes.scheme_id", "steps.scheme_id")
+      .orderby("schemes.scheme_id")
 }
 
 function findById(scheme_id) { // EXERCISE B
